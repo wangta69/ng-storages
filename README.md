@@ -23,27 +23,52 @@ export class AComponent{
     constructor(protected storage:StorageService){}
 
     private set_string(){
-        this.storage.set({key:value});
+        this.storage.set({key:value}).then((res) => {
+            console.log(res);
+        });
+    }
+
+    private set_object(){
+        this.storage.setObject({key: object}).then((res) => {
+            console.log(res);
+        });
+    }
+
+    private get_string(){
+        this.storage.get('key').then((res) => {
+            console.log(res);
+        });
+    }
+
+    private get_object(){
+        this.storage.get('key').then((res) => {
+            console.log(res);
+        });
+    }
+
+    // Deprecated
+    private set_string(){
+        this.storage.setCallback({key:value});
     }
 
     private set_string_callback(){
-        this.storage.set({key:value}, function(result){
+        this.storage.setCallback({key:value}, function(result){
                 //To Do
         }.bind(this));
     }
 
     private set_object(){
-        this.storage.setObject({key: object});
+        this.storage.setObjectCallback({key: object});
     }
 
     private get_string(){
-        this.storage.get('key', function(str){
+        this.storage.getCallback('key', function(str){
 
       }.bind(this));
     }
 
     private get_object(){
-        this.storage.get('key', function(object){
+        this.storage.getCallback('key', function(object){
 
       }.bind(this));
     }
