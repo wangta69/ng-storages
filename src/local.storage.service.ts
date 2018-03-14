@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 
 @Injectable()
-export class StorageService {
+export class LocalStorageService {
 
 	constructor() {}
 
@@ -28,7 +27,7 @@ export class StorageService {
 	public setObject(obj:any): Promise<boolean> {
 		let key = Object.keys(obj)[0];
 		let value = obj[key]
-		
+
 		localStorage.setItem(key, JSON.stringify(value));
 		return new Promise(resolve => resolve(true));
 	}

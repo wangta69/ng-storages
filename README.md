@@ -8,69 +8,49 @@ npm install ng-storages
 
 ## How to use
 ``` app.module.ts
-import { StorageService } from 'ng-storages'
+import { LocalStorageService } from 'ng-storages'
 @NgModule({
-    providers: [ StorageService ]
+    providers: [ LocalStorageService ]
 })
 
 ```
 
-
+## LocalStorage
 ``` app.componet.ts
-import { StorageService } from 'ng-storages'
+import { LocalStorageService } from 'ng-storages'
 
 export class AComponent{
-    constructor(protected storage:StorageService){}
+    constructor(protected storage:LocalStorageService){
 
-    private set_string(){
         this.storage.set({key:value}).then((res) => {
             console.log(res);
         });
-    }
 
-    private set_object(){
         this.storage.setObject({key: object}).then((res) => {
             console.log(res);
         });
-    }
 
-    private get_string(){
         this.storage.get('key').then((res) => {
             console.log(res);
         });
-    }
 
-    private get_object(){
-        this.storage.get('key').then((res) => {
+        this.storage.getObject('key').then((res) => {
             console.log(res);
         });
-    }
-
-    // Deprecated
-    private set_string(){
-        this.storage.setCallback({key:value});
-    }
-
-    private set_string_callback(){
-        this.storage.setCallback({key:value}, function(result){
-                //To Do
-        }.bind(this));
-    }
-
-    private set_object(){
-        this.storage.setObjectCallback({key: object});
-    }
-
-    private get_string(){
-        this.storage.getCallback('key', function(str){
-
-      }.bind(this));
-    }
-
-    private get_object(){
-        this.storage.getCallback('key', function(object){
-
-      }.bind(this));
     }
 }
+```
+
+## Cookie
+``` app.module.ts
+import { CookieService } from 'ng-storages'
+@NgModule({
+  providers: [  CookieService ]
+})
+
+```
+
+``` app.componet.ts
+import { CookieService } from 'ng-storages'
+
 ```

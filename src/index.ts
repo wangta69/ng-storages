@@ -1,2 +1,4 @@
 export { StorageModule }   from './storage.module';
-export { StorageService }   from './storage.service';
+export { LocalStorageService } from './local.storage.service';
+export { SessionStorageService } from './session.storage.service';
+export { CookieService } from './cookie.service';
