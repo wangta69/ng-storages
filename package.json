@@ -1,32 +1,21 @@
 {
   "name": "ng-storages",
-  "version": "1.1.0",
-  "description": "angular storages localstorage sessionstorage",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "dependencies": {
-    "@angular/common": "^5.0.0",
-    "@angular/compiler": "^5.0.0",
-    "@angular/core": "^5.0.0",
-    "rxjs": "^5.5.2"
+  "version": "1.1.2",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
   },
-  "devDependencies": {
-    "@angular/cli": "1.6.2",
-    "@angular/compiler-cli": "^5.0.0",
-    "@types/node": "~6.0.60",
-    "tslint": "~5.7.0",
-    "typescript": "~2.4.2"
-  },
+  "description": "angular storage tested on angular6",
+  "main": "karma.conf.js",
   "scripts": {
-    "prepublish": "npm run build",
-    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wangta69//ng-storages.git"
+    "url": "git+https://github.com/wangta69/ng-storages.git"
   },
   "keywords": [
+    "storage",
     "localstorage",
     "sessionstorage",
     "angular"
@@ -36,8 +25,5 @@
   "bugs": {
     "url": "https://github.com/wangta69/ng-storages/issues"
   },
-  "homepage": "https://github.com/wangta69/ng-storages#readme",
-  "directories": {
-    "test": "test"
-  }
+  "homepage": "https://github.com/wangta69/ng-storages#readme"
 }

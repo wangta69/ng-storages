@@ -8,7 +8,7 @@ npm install ng-storages
 
 ## How to use
 ``` app.module.ts
-import { LocalStorageService } from 'ng-storages'
+import { LocalStorageService } from 'ng-storages';
 @NgModule({
     providers: [ LocalStorageService ]
 })
@@ -17,12 +17,16 @@ import { LocalStorageService } from 'ng-storages'
 
 ## LocalStorage
 ``` app.componet.ts
-import { LocalStorageService } from 'ng-storages'
+import { LocalStorageService } from 'ng-storages';
 
 export class AComponent{
     constructor(protected storage:LocalStorageService){
 
-        this.storage.set({key:value}).then((res) => {
+        this.storage.set({key: value}).then((res) => {
+            console.log(res);
+        });
+
+        this.storage.get('key').then((res) => {
             console.log(res);
         });
 
@@ -30,9 +34,7 @@ export class AComponent{
             console.log(res);
         });
 
-        this.storage.get('key').then((res) => {
-            console.log(res);
-        });
+
 
         this.storage.getObject('key').then((res) => {
             console.log(res);
@@ -43,14 +45,14 @@ export class AComponent{
 
 ## Cookie
 ``` app.module.ts
-import { CookieService } from 'ng-storages'
+import { CookieService } from 'ng-storages';
 @NgModule({
-  providers: [  CookieService ]
+  providers: [ CookieService ]
 })
 
 ```
 
 ``` app.componet.ts
-import { CookieService } from 'ng-storages'
+import { CookieService } from 'ng-storages';
 
 ```
