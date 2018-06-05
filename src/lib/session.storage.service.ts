@@ -1,42 +1,40 @@
 import { Injectable } from '@angular/core';
-//import { Observable } from 'rxjs';
 
 @Injectable()
 export class SessionStorageService {
 
-	constructor() {}
+    constructor() {}
 
-	/**
-	* @param Object {key:value}
-	* @return Callback Function
-	*/
-	public set(obj:any): Promise<boolean> {
-		let key = Object.keys(obj)[0];
-		let value = obj[key]
+    /**
+    * @param Object {key:value}
+    * @return Callback Function
+    */
+    public set(obj: any): Promise<boolean> {
+        const key = Object.keys(obj)[0];
+        const value = obj[key];
 
-		sessionStorage.setItem(key, value);
-		return new Promise(resolve => resolve(true));
-	}
-	/**
-	* @param Object {key:{object}}
-	* @return Callback Function
-	*/
-	public setObject(obj:any): Promise<boolean> {
-		let key = Object.keys(obj)[0];
-		let value = obj[key]
+        sessionStorage.setItem(key, value);
+        return new Promise(resolve => resolve(true));
+    }
+    /**
+    * @param Object {key:{object}}
+    * @return Callback Function
+    */
+    public setObject(obj: any): Promise<boolean> {
+        const key = Object.keys(obj)[0];
+        const value = obj[key];
 
-		sessionStorage.setItem(key, JSON.stringify(value));
-		return new Promise(resolve => resolve(true));
-	}
+        sessionStorage.setItem(key, JSON.stringify(value));
+        return new Promise(resolve => resolve(true));
+    }
 
-	public get(key): Promise<string> {
-		let result = sessionStorage.getItem(key);
-		return new Promise(resolve => resolve(result));
-	}
+    public get(key): Promise<string> {
+        const result = sessionStorage.getItem(key);
+        return new Promise(resolve => resolve(result));
+    }
 
-	public getObject(key): Promise<any> {
-		let result = sessionStorage.getItem(key);
-		return new Promise(resolve => resolve(JSON.parse(result)));
-	}
-
+    public getObject(key): Promise<any> {
+        const result = sessionStorage.getItem(key);
+        return new Promise(resolve => resolve(JSON.parse(result)));
+    }
 }
