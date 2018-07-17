@@ -38,6 +38,15 @@ export class LocalStorageService {
         return new Promise(resolve => resolve(JSON.parse(result)));
     }
 
+    public delete(key) {
+           localStorage.removeItem(key);
+           return new Promise(resolve => resolve(true));
+       };
+    public clear() {
+           localStorage.clear();
+           return new Promise(resolve => resolve(true));
+       };
+
     /**
     * @param Object {key:value}
     * @return Callback Function
