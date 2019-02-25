@@ -19,8 +19,8 @@ import { LocalStorageService } from 'ng-storages';
 ``` app.componet.ts
 import { LocalStorageService } from 'ng-storages';
 
-export class AComponent{
-    constructor(protected storage:LocalStorageService){
+export class AComponent {
+    constructor(protected storage: LocalStorageService){
 
         this.storage.set({key: value}).then((res) => {
             console.log(res);
