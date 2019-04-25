@@ -28,31 +28,31 @@ export class LocalStorageService {
         return new Promise(resolve => resolve(true));
     }
 
-    public get(key): Promise<string> {
+    public get(key: string): Promise<string> {
         const result = localStorage.getItem(key);
         return new Promise(resolve => resolve(result));
     }
 
-    public getObject(key): Promise<any> {
+    public getObject(key: string): Promise<any> {
         const result = localStorage.getItem(key);
         return new Promise(resolve => resolve(JSON.parse(result)));
     }
 
-    public delete(key) {
-           localStorage.removeItem(key);
-           return new Promise(resolve => resolve(true));
-       };
+    public delete(key: string) {
+        localStorage.removeItem(key);
+        return new Promise(resolve => resolve(true));
+    }
     public clear() {
-           localStorage.clear();
-           return new Promise(resolve => resolve(true));
-       };
+        localStorage.clear();
+        return new Promise(resolve => resolve(true));
+    }
 
     /**
-    * @param Object {key:value}
-    * @return Callback Function
-    * @Deprecated
-    */
-    public setCallback(obj: any, callback?: Function) {
+     * @param Object {key:value}
+     * @return Callback Function
+     * @Deprecated
+     */
+    public setCallback(obj: any, callback?: (body: any) => void) {
         const key = Object.keys(obj)[0];
         const value = obj[key];
 
@@ -63,11 +63,11 @@ export class LocalStorageService {
         }
     }
     /**
-    * @param Object {key:{object}}
-    * @return Callback Function
-    * @Deprecated
-    */
-    public setObjectCallback(obj: any, callback?: Function) {
+     * @param Object {key:{object}}
+     * @return Callback Function
+     * @Deprecated
+     */
+    public setObjectCallback(obj: any, callback?: (body: any) => void) {
         const key = Object.keys(obj)[0];
         const value = obj[key];
 
@@ -78,17 +78,17 @@ export class LocalStorageService {
     }
 
     /**
-    * @Deprecated
-    */
-    public getCallback(key, callback: Function) {
+     * @Deprecated
+     */
+    public getCallback(key: string, callback: (body: any) => void) {
         const result = localStorage.getItem(key);
         callback(result);
     }
 
     /**
-    * @Deprecated
-    */
-    public getObjectCallback(key, callback: Function) {
+     * @Deprecated
+     */
+    public getObjectCallback(key: string, callback: (body: any) => void) {
         const result = localStorage.getItem(key);
         callback(JSON.parse(result));
     }

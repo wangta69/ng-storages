@@ -28,12 +28,12 @@ export class SessionStorageService {
         return new Promise(resolve => resolve(true));
     }
 
-    public get(key): Promise<string> {
+    public get(key: string): Promise<string> {
         const result = sessionStorage.getItem(key);
         return new Promise(resolve => resolve(result));
     }
 
-    public getObject(key): Promise<any> {
+    public getObject(key: string): Promise<any> {
         const result = sessionStorage.getItem(key);
         return new Promise(resolve => resolve(JSON.parse(result)));
     }
