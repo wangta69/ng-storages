@@ -7,7 +7,9 @@ export class LocalStorageService {
 
     /**
     * @param Object {key:value}
-    * @return Callback Function
+    * this.storage.set({key: value}).then((res) => {
+    *    console.log(res);
+    * });
     */
     public set(obj: any): Promise<boolean> {
         const key = Object.keys(obj)[0];
@@ -17,8 +19,10 @@ export class LocalStorageService {
         return new Promise(resolve => resolve(true));
     }
     /**
-    * @param Object {key:{object}}
-    * @return Callback Function
+     * @param Object {key:{object}}
+     * this.storage.setObject({key: object}).then((res) => {
+     * console.log(res);
+     * });
     */
     public setObject(obj: any): Promise<boolean> {
         const key = Object.keys(obj)[0];
@@ -27,12 +31,20 @@ export class LocalStorageService {
         localStorage.setItem(key, JSON.stringify(value));
         return new Promise(resolve => resolve(true));
     }
-
+    /**
+     * this.storage.get('key').then((res) => {
+     *    console.log(res);
+     * });
+     */
     public get(key: string): Promise<string> {
         const result = localStorage.getItem(key);
         return new Promise(resolve => resolve(result));
     }
-
+    /**
+     * this.storage.getObject('key').then((res) => {
+     *   console.log(res);
+     * });
+    */
     public getObject(key: string): Promise<any> {
         const result = localStorage.getItem(key);
         return new Promise(resolve => resolve(JSON.parse(result)));
