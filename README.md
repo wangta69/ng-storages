@@ -34,9 +34,21 @@ export class AComponent {
             console.log(res);
         });
 
-
-
         this.storage.getObject('key').then((res) => {
+            console.log(res);
+        });
+
+        /**
+         * remove specific key
+         */
+        this.storage.delete('key').then((res) => {
+            console.log(res);
+        });
+
+        /**
+         * clear all storage
+         */
+        this.storage.clear().then((res) => {
             console.log(res);
         });
     }
