@@ -29,7 +29,7 @@ export class LocalStorageService {
         const value = obj[key];
 
         localStorage.setItem(key, JSON.stringify(value));
-        return new Promise(resolve => resolve(true));
+        return new Promise(resolve => resove(true));
     }
     /**
      * this.storage.get('key').then((res) => {
