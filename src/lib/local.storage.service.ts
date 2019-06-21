@@ -18,6 +18,14 @@ export class LocalStorageService {
         localStorage.setItem(key, value);
         return new Promise(resolve => resolve(true));
     }
+
+    public setItem(obj: any): void {
+        const key = Object.keys(obj)[0];
+        const value = obj[key];
+
+        localStorage.setItem(key, value);
+    }
+
     /**
      * @param Object {key:{object}}
      * this.storage.setObject({key: object}).then((res) => {
@@ -31,6 +39,12 @@ export class LocalStorageService {
         localStorage.setItem(key, JSON.stringify(value));
         return new Promise(resolve => resolve(true));
     }
+
+    public setItemObject(obj: any): void {
+        const key = Object.keys(obj)[0];
+        const value = obj[key];
+        localStorage.setItem(key, JSON.stringify(value));
+    }
     /**
      * this.storage.get('key').then((res) => {
      *    console.log(res);
@@ -39,6 +53,10 @@ export class LocalStorageService {
     public get(key: string): Promise<string> {
         const result = localStorage.getItem(key);
         return new Promise(resolve => resolve(result));
+    }
+
+    public getItem(key: string): string {
+        return localStorage.getItem(key);
     }
 
 
@@ -50,6 +68,10 @@ export class LocalStorageService {
     public getObject(key: string): Promise<any> {
         const result = localStorage.getItem(key);
         return new Promise(resolve => resolve(JSON.parse(result)));
+    }
+    public getItemObject(key: string): any {
+        const result = localStorage.getItem(key);
+        return JSON.parse(result);
     }
 
     public delete(key: string) {
