@@ -40,6 +40,8 @@ export class LocalStorageService {
         const result = localStorage.getItem(key);
         return new Promise(resolve => resolve(result));
     }
+
+
     /**
      * this.storage.getObject('key').then((res) => {
      *   console.log(res);
